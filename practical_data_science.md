@@ -102,3 +102,12 @@ But there is a more intuitive way.
 $$
 n_{minority} \times w_{minority} = n_{majority} \times w_{majority}
 $$
+
+---
+
+# Order of pre-processing
+
+- Using transformation steps before doing the train/test split
+- You should split as a first step
+- Target and train distribution leakage through the transformation
+- e.g. with StandardScaler, the scaler knows the mean and std
