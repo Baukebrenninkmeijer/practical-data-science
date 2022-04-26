@@ -2,6 +2,8 @@
 marp: true
 title: Practical Data Science
 theme: uncover
+math: MathJax
+html: true
 ---
 
 <!-- _class: invert -->
@@ -34,7 +36,6 @@ with data science
 - Data Scientist @ABNAMRO since 2019
   - 1.5 years in Data Management
   - ~1 years in Global Markets
-- Co-founder of DSFC
 
 - [![github_logo](images/GitHub-Mark-32px.png)](https://github.com/Baukebrenninkmeijer) [@baukebrenninkmeijer](https://github.com/Baukebrenninkmeijer)
 
@@ -48,27 +49,113 @@ But mostly isn't
 
 ---
 
-### Feature Engineering [1/x]
+## Ordinal features
 
-Ordinal features
+Let's discuss one-hot encoding vs. ordinal encoding
+
+![w:400px](images/ordinal_vs_onehot.svg)
+
+When does it matter?
 
 ---
 
+## Feature Importance with tree-based models
+
+Trees have the awesome `.feature_importance_` attribute.
+
+But
+*Tree-based models have a strong tendency to overestimate the importance of continuous numerical or high cardinality categorical features.*
+
+---
+
+## Let's see this in practice
+
+- `Binary classification` on whether employees will leave the company (attrition)
+- Data is mix of discrete and continuous.
+- Explanation can be used by senior management to mitigate.
+
+---
+
+## Feature importance
+
+![bg right fit](images/feature_importance1.png)
+
+Most important:
+
+- `MonthlyIncome`
+- `Age`
+- `WorkingYears`
+
+---
+
+## Let's mess with shit
+
+We'll add a single random continuous variable in the range [100, 200].
+
+![fakka](images/random_continuous_variable.png)
+
+---
+
+## <!-- fit --> New feature importances
+
+![bg right fit](images/feature_importance2.png)
+
+- 7th highest is random...????
+- What does this mean for variables below random? No value?
+
+---
+
+## I'll blow your mind even more
+
+Let's also add a discrete random variable
+
+![bg right fit](images/feature_importance3.png)
+
+*Much less important than the continuous variable.*
+
+---
+
+## Why?
+
+- Impurity Based Importance (Gini, Entropy or MSE)
+- This is biased towards `high cardinality` features, cause it can split more.
+- Can give high importance to unpredictive variables due to `overfitting`.
+- Feature importance is calculated purely on the training data. Does not reflect performance on unseen data.
+
+---
+
+# <!--fit--> The solution: Permutation Importance
+
+- Model agnostig way to determine importance of features for trained model.
+- Can be applied on unseen data.
+- Algo:
+  1. Calculate baseline score (`.score`)
+  2. Shuffles a feature and recomputes score
+  3. ⬇performance == ⬆ importance
+
+*What happens with correlated columns?*
+
+---
+<!-- footer: Class Imbalance • Practical Data Science • Bauke Brenninkmeijer -->
+
 ## Class Imbalance
-Techniques used include:
+
+Techniques typically used:
+
 - Oversampling
 - Undersampling
 - Smote
 
-All methods fail to reach high levels of recall while creating undue complexity.
+These methods increase complexity with often limited results.
 
-But there is a more intuitive way.
+**Luckily there is an intuitive way!**
 
 ---
 
 <!-- _paginate: False -->
 
-# SMOTE
+## SMOTE
+
 - `Synthetic Minority Oversampling Technique`
 - Creates synthetic points to increase the number of observations in minority class
 
@@ -78,24 +165,27 @@ But there is a more intuitive way.
 
 ---
 
-# Upsampling
+## Oversampling
 
 - Fix class imbalance by looking more at the minority class
 - I.e., duplicate minority data points
 
+![zoom](images/enhance-zoom.gif)
+
 ---
 
-# Undersampling
+## Undersampling
 
 - Only look at the same number of data points in the majority class, as there are in the minority class.
 - I.e., drop part of the data
 
+![zoom](images/falling.gif)
+
 ---
 
-# Class Weights
+## Class Weights
 
 - Default part of sklearn
-- Manages tradeoff between precision and recall
 - Allows one to penalise minority errors more
 - Assign weights to classes such that the weighted sums is equal.
 
@@ -105,9 +195,33 @@ $$
 
 ---
 
-# Order of pre-processing
+## Order of pre-processing
 
-- Using transformation steps before doing the train/test split
-- You should split as a first step
-- Target and train distribution leakage through the transformation
-- e.g. with StandardScaler, the scaler knows the mean and std
+- `Never` do transformations `before` splitting train/test
+- Splitting should (almost) always be the first step, to prevent information leakage
+
+```python
+    scaler = StandardScaler()
+
+    # Includes metrics from future test set
+    df = scaler.fit_transform(df)
+
+    x_train, x_test, y_train, y_test = train_test_split(
+        df.drop('target', axis=1),
+        df.target,
+    )
+```
+
+---
+
+What we should do:
+
+```python
+    x_train, x_test, y_train, y_test = train_test_split(
+        df.drop('target', axis=1),
+        df.target,
+    )
+    scaler = StandardScaler()
+    x_train = scaler.fit_transform(x_train)
+    x_test = scaler.transform(x_test)
+```
