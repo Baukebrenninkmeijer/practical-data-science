@@ -181,7 +181,7 @@ We'll add a single random continuous variable in the range [100, 200].
 
 ## <!-- fit --> New feature importances
 
-![bg fit right:55%](images/feature_importance2.png)
+![bg fit right](images/feature_importance2.png)
 
 - 7th highest is random...????
 - What does this mean for variables below random? No value?
@@ -211,13 +211,13 @@ Let's also add a discrete random variable
 
 - Model agnostig way to determine importance of features for trained model.
 - Can be applied on unseen data.
-- Calculates impract of variable based on how much the model performance decreases
+- Calculates impact of variable based on how much the model performance decreases
 
 ---
 
 ## Algo
 
-1. Calculate baseline score (`.score`)
+1. Calculate baseline score (`.score` or custom metric)
 2. Shuffles a feature and recomputes score
 3. ⬇performance == ⬆ importance
 
@@ -225,7 +225,7 @@ Let's also add a discrete random variable
 
 ---
 
-![w:1100px](images/feature_importance4.png)
+![w:1050px](images/feature_importance4.png)
 
 ---
 <!-- _class: invert -->
