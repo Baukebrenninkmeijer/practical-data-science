@@ -21,8 +21,8 @@ Bauke Brenninkmeijer
 
 ## Goal
 
-Tell you what `works`
-and `doesn't work`
+Show some tips, tricks,
+and common pitfalls.
 
 <!-- footer: Practical Data Science • Bauke Brenninkmeijer -->
 
@@ -34,9 +34,52 @@ and `doesn't work`
 - Data Scientist @ABNAMRO since 2019
   - 1.5 years in Data Management
   - ~1 years in Global Markets
-- Co-hosted The FastAI MOOC Meetup 2 years @AMS
+- You might now me from the Data Science Triangle, Python Triangle or some of the other ABN communities.
 
-- [![github_logo](images/GitHub-Mark-32px.png)](https://github.com/Baukebrenninkmeijer) [@baukebrenninkmeijer](https://github.com/Baukebrenninkmeijer)
+- [![github_logo](images/GitHub-Mark-32px.png)](https://github.com/Baukebrenninkmeijer)[ @baukebrenninkmeijer](https://github.com/Baukebrenninkmeijer)
+
+---
+
+# Now you know me
+
+Who the f### are you
+
+---
+
+## Years of experience with data science?
+
+---
+
+## What is your background?
+
+- Computer Science (me :))
+- Physics or Math
+- Economics/Econometrics/Quantitative Finance
+- Other, please share!
+
+---
+
+<!-- _class: invert -->
+
+## Outline
+
+1. Relation of business
+2. Short tip on models
+3. Ordinal/Nominal data encodings
+4. Feature Importance with Trees
+5. Class Imbalance
+6. Order of pre-processing
+
+---
+
+## Relation to the Business/Stakeholders
+
+- Understand what they do
+- Read a book about banking (see slides repository)
+
+---
+
+## Understand what they do
 
 ---
 
@@ -175,7 +218,7 @@ Most important:
 
 We'll add a single random continuous variable in the range [100, 200].
 
-![fakka](images/random_continuous_variable.png)
+![w:450px](images/random_continuous_variable.png)
 
 ---
 
@@ -192,7 +235,7 @@ We'll add a single random continuous variable in the range [100, 200].
 
 Let's also add a discrete random variable
 
-![bg right fit](images/feature_importance3.png)
+![bg fit right](images/feature_importance3.png)
 
 *Much less important than the continuous variable.*
 
@@ -324,7 +367,7 @@ We train a classifier on SMOTE, undersampling, oversampling and class weights an
 ---
 <!-- _class: invert -->
 
-# Order of pre-processing
+## Order of pre-processing
 
 ---
 
