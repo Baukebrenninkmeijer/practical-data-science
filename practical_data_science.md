@@ -72,10 +72,14 @@ Who the f### are you
 
 ---
 
-## Relation to the Business/Stakeholders
+## <!-- fit --> Relation to the Business/Stakeholders
 
-- Understand what they do
-- Read a book about banking (see slides repository)
+- Understand what they do.
+  *It is essential that a data scientist understands the business case well.*
+- Read a book about banking (see slides repository).
+  *They skipped it with me, but it helps so much.*
+- To know how to handle edge-cases or what to prioritize: ask the stakeholder.
+  *"Korte lijntjes" are essential*
 
 ---
 
