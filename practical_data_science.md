@@ -7,7 +7,7 @@ html: true
 ---
 
 <!-- _class: invert -->
-<!-- ![bg](images/title-background.png) -->
+![bg](images/title-background.png)
 
 ## Practical Data Science
 
@@ -40,7 +40,7 @@ and common pitfalls.
 
 ---
 
-# Now you know me
+## Now you know me
 
 Who the f### are you
 
@@ -48,14 +48,32 @@ Who the f### are you
 
 ## Years of experience with data science?
 
+1. 1-2
+2. 3-5
+3. 5-10
+4. 10+
+
 ---
 
-## What is your background?
+## What departments are you from?
 
-- Computer Science (me :))
-- Physics or Math
-- Economics/Econometrics/Quantitative Finance
-- Other, please share!
+1. DFC
+2. RBB/Mortages
+3. Wealth Banking
+4. Commerical banking
+5. CISO
+6. CADM
+7. HR
+8. Other
+
+---
+
+## Do you know...
+
+1. K-nearest neighbors
+2. F1-score
+3. Softmax
+4. self-attention
 
 ---
 
@@ -63,7 +81,7 @@ Who the f### are you
 
 ## Outline
 
-1. Relation of business
+1. Business tips
 2. Short tip on models
 3. Ordinal/Nominal data encodings
 4. Feature Importance with Trees
@@ -72,18 +90,14 @@ Who the f### are you
 
 ---
 
-## <!-- fit --> Relation to the Business/Stakeholders
+## Business tips
 
 - Understand what they do.
   *It is essential that a data scientist understands the business case well.*
 - Read a book about banking (see slides repository).
-  *They skipped it with me, but it helps so much.*
+  *I didn't initially had to, but it helps so much.*
 - To know how to handle edge-cases or what to prioritize: ask the stakeholder.
   *"Korte lijntjes" are essential*
-
----
-
-## Understand what they do
 
 ---
 
@@ -134,7 +148,7 @@ E.g., with **trees** with unlimited depth, both encodings are essentially equiva
 ---
 <!-- _class: invert -->
 
-## Tree Splitting
+## Tree Splitting Example
 
 ![w:600px](images/tree_splits_example.svg)
 
@@ -182,10 +196,17 @@ _footer: "" -->
 </ul>
 
 ---
+
+## What have we learned?
+
+- Ordered categorical representations can help models in constrained situations, such as when reducing overfitting.
+- When values of a variable have different importances, we see OHE becomes more powerfull.
+- When models have unlimited expressive power (i.e. are able to overfit).
+
+---
 <!-- _class: invert
 footer: Feature Importance • Practical Data Science • Bauke Brenninkmeijer
 -->
-
 
 # Feature Importance with tree-based models
 
