@@ -7,13 +7,12 @@ html: true
 ---
 
 <!-- _class: invert -->
-![bg](images/title-background.png)
 
 ## Practical Data Science
 
 Bauke Brenninkmeijer
 
-<!-- footer: Kaggle Competition for Jr. Data Science • ABN AMRO 2022-->
+<!-- footer:  Practical Data Science • Bauke Brenninkmeijer -->
 
 ---
 
@@ -48,9 +47,11 @@ Who the f### are you
 
 ## Years of experience with data science?
 
+Please raise your hand
+
 1. 1-2
 2. 3-5
-3. 5-10
+3. 6-10
 4. 10+
 
 ---
@@ -68,7 +69,7 @@ Who the f### are you
 
 ---
 
-## Do you know...
+## Raise your hand if you know...
 
 1. K-nearest neighbors
 2. F1-score
@@ -105,7 +106,7 @@ Who the f### are you
 
 Most examples are with Random Forest or Decision Trees.
 
-- Often one of the strongest models (RF)
+- Often one of the strongest models (RF/XGB/LGBM)
 - Easily implementable with Scikit-learn
 - Easily accessible explainability features
 - Requires little data preprocessing, like scaling or OHE.
