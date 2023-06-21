@@ -10,3 +10,16 @@ It covers six main topics:
 5. Class Imbalance
 6. Order of pre-processing
 
+## Some highlights:
+
+### Effects of imbalanced data sampling techniques with lower amounts of data
+![effects of using class weights visualized](images/class_weights_results.png)
+
+### Effectiveness of certain techniques keeping amount of data constant
+![](images/imbalanced_learning_performance.png)
+
+### Behaviour of KNN with different encodings
+![](images/knn_dummies_performance_over_n_neigbors.png)
+
+### And the same effects on an SVM
+![](images/svm_dummies_vs_categorical.png)
